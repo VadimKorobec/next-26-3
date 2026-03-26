@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { DUMMY_NEWS } from "../../../dummy-news";
-import Image from "next/image";
 
 const NewsPage = () => {
   return (
