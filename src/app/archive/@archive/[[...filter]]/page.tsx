@@ -1,7 +1,13 @@
+import { getAvailableNewsYears } from "@/lib/news";
 import Link from "next/link";
-import { getAvailableNewsYears } from "../../../lib/news";
 
-const ArchivePage = () => {
+interface FilteredNewsPageProps {
+  params: Promise<{ filter: string }>;
+}
+
+const FilteredNewsPage = async ({ params }: FilteredNewsPageProps) => {
+  const { filter } = await params;
+
   const links = getAvailableNewsYears();
 
   return (
@@ -19,4 +25,4 @@ const ArchivePage = () => {
   );
 };
 
-export default ArchivePage;
+export default FilteredNewsPage;
