@@ -27,8 +27,11 @@ const FilteredNewsPage = async ({ params }: FilteredNewsPageProps) => {
   }
 
   if (selectedYear && selectedMonth) {
-    news = getNewsForYearAndMonth(selectedYear,selectedMonth)
+    news = getNewsForYearAndMonth(selectedYear, selectedMonth);
+    links = []
   }
+
+  if(selectedYear && !getAvailableNewsYears().includes(+selectedYear))
 
   return (
     <>
