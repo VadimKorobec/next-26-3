@@ -13,7 +13,6 @@ interface FilteredNewsPageProps {
 
 const FilteredNewsPage = async ({ params }: FilteredNewsPageProps) => {
   const { filter } = await params;
-  
 
   const selectedYear = filter ? filter[0] : undefined;
   const selectedMonth = filter ? filter[1] : undefined;
@@ -28,10 +27,16 @@ const FilteredNewsPage = async ({ params }: FilteredNewsPageProps) => {
 
   if (selectedYear && selectedMonth) {
     news = getNewsForYearAndMonth(selectedYear, selectedMonth);
-    links = []
+    links = [];
   }
 
-  if(selectedYear && !getAvailableNewsYears().includes(+selectedYear))
+  if (
+    (selectedYear && !getAvailableNewsYears().includes(+selectedYear)) ||
+    (selectedMonth &&
+      !getAvailableNewsMonths(selectedYear).includes(+selectedMonth))
+  ) {
+    throw new Error("Invalid filter.");
+  }
 
   return (
     <>
