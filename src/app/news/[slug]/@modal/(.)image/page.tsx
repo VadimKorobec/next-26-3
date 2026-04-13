@@ -1,13 +1,14 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 import { DUMMY_NEWS } from "../../../../../../dummy-news";
+import ModalBackdrop from "@/components/ModalBackdrop/ModalBackdrop";
 
-interface ImagePageProps {
+interface InterceptedImagePageProps {
   params: Promise<{ slug: string }>;
 }
 
-const ImagePage = async ({ params }: ImagePageProps) => {
+const InterceptedImagePage = async ({ params }: InterceptedImagePageProps) => {
   const { slug } = await params;
   const newsItem = DUMMY_NEWS.find((item) => item.slug === slug);
 
@@ -17,13 +18,14 @@ const ImagePage = async ({ params }: ImagePageProps) => {
 
   return (
     <>
-      <div className="modal-backdrop" />
+      <ModalBackdrop/>
       <dialog className="modal" open>
         <div className="fullscreen-image">
           <Image
             src={`/images/news/${newsItem.image}`}
             alt={newsItem.title}
-            fill
+            width={740}
+            height={800}
           />
         </div>
       </dialog>
@@ -31,4 +33,4 @@ const ImagePage = async ({ params }: ImagePageProps) => {
   );
 };
 
-export default ImagePage;
+export default InterceptedImagePage;

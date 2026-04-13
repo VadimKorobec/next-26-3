@@ -1,5 +1,3 @@
-import MainHeader from "@/components/MainHeader/MainHeader";
-
 import "./globals.css";
 
 export const metadata = {
@@ -15,10 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div id="page">
-          <MainHeader />
-          {children}
-        </div>
+        <div id="page">{children}</div>
       </body>
     </html>
   );
