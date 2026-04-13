@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { DUMMY_NEWS } from "../../../../dummy-news";
-import Link from "next/link";
+
+import { DUMMY_NEWS } from "../../../../../dummy-news";
 
 interface NewsDetailePageProps {
   params: Promise<{ slug: string }>;

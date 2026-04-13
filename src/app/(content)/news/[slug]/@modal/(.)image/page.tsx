@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-import { DUMMY_NEWS } from "../../../../../../dummy-news";
+
 import ModalBackdrop from "@/components/ModalBackdrop/ModalBackdrop";
+import { DUMMY_NEWS } from "../../../../../../../dummy-news";
 
 interface InterceptedImagePageProps {
   params: Promise<{ slug: string }>;

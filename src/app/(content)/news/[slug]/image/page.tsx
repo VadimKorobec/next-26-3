@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { DUMMY_NEWS } from "../../../../../../dummy-news";
 
-import { DUMMY_NEWS } from "../../../../../dummy-news";
+;
 
 interface ImagePageProps {
   params: Promise<{ slug: string }>;
